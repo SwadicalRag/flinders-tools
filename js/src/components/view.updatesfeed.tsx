@@ -94,7 +94,7 @@ export class InternalLectureSubscriptionUpdates extends React.Component<{
         let n = 0;
         let subs = this.state.events.map((event,i) => {
             if(event.watched) {return;}
-            if(n > 20) {return;}
+            // if(n > 20) {return;}
             n++;
 
             let redirect = "/topic/" + event.subjectCode;
@@ -118,6 +118,8 @@ export class InternalLectureSubscriptionUpdates extends React.Component<{
         if(this.state.events.length == 0) {
             subs = [<div>You're up to date, well done!</div>];
         }
+
+        subs.reverse();
 
         return <div className="ui relaxed feed">{subs}</div>;
     }

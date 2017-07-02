@@ -719,9 +719,7 @@ var InternalLectureSubscriptionUpdates = (function (_super) {
             if (event.watched) {
                 return;
             }
-            if (n > 20) {
-                return;
-            }
+            // if(n > 20) {return;}
             n++;
             var redirect = "/topic/" + event.subjectCode;
             var target = "/vid/" + b64.Base64.encodeURI(event.url);
@@ -733,6 +731,7 @@ var InternalLectureSubscriptionUpdates = (function (_super) {
         if (this.state.events.length == 0) {
             subs = [React.createElement("div", null, "You're up to date, well done!")];
         }
+        subs.reverse();
         return React.createElement("div", {className: "ui relaxed feed"}, subs);
     };
     return InternalLectureSubscriptionUpdates;
