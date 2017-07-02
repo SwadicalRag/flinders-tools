@@ -11,6 +11,7 @@ import * as b64 from "js-base64";
 
 class LectureVideoStatic2 extends React.Component<{
     params: any,
+    location: any,
     watchLecture:(url:string)=>void,
 },{}> {
     initialise() {}
@@ -46,6 +47,16 @@ class LectureVideoStatic2 extends React.Component<{
                 volumeStep: 0.1,
                 seekStep: 3
             });
+
+            let time = this.props.location.query.t;
+
+            if(time) {
+                time = parseInt(time);
+
+                if(!isNaN(time) && isFinite(time)) {
+                    this.player.currentTime(time);
+                }
+            }
         });
     }
 

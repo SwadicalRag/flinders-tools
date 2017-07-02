@@ -300,6 +300,13 @@ var LectureVideoStatic2 = (function (_super) {
                 volumeStep: 0.1,
                 seekStep: 3
             });
+            var time = this.props.location.query.t;
+            if (time) {
+                time = parseInt(time);
+                if (!isNaN(time) && isFinite(time)) {
+                    this.player.currentTime(time);
+                }
+            }
         });
     };
     LectureVideoStatic2.prototype.render = function () {
