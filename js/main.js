@@ -295,18 +295,21 @@ var LectureVideoStatic2 = (function (_super) {
                 4.5,
             ]
         }, function () {
+            var _this = this;
             // this.play();
             this.hotkeys({
                 volumeStep: 0.1,
                 seekStep: 3
             });
-            var time = this.props.location.query.t;
-            if (time) {
-                time = parseInt(time);
-                if (!isNaN(time) && isFinite(time)) {
-                    this.player.currentTime(time);
+            this.player.ready(function () {
+                var time = _this.props.location.query.t;
+                if (time) {
+                    time = parseInt(time);
+                    if (!isNaN(time) && isFinite(time)) {
+                        _this.player.currentTime(time);
+                    }
                 }
-            }
+            });
         });
     };
     LectureVideoStatic2.prototype.render = function () {

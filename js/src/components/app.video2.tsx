@@ -48,15 +48,17 @@ class LectureVideoStatic2 extends React.Component<{
                 seekStep: 3
             });
 
-            let time = this.props.location.query.t;
+            this.player.ready(() => {
+                let time = this.props.location.query.t;
 
-            if(time) {
-                time = parseInt(time);
+                if(time) {
+                    time = parseInt(time);
 
-                if(!isNaN(time) && isFinite(time)) {
-                    this.player.currentTime(time);
+                    if(!isNaN(time) && isFinite(time)) {
+                        this.player.currentTime(time);
+                    }
                 }
-            }
+            });
         });
     }
 
