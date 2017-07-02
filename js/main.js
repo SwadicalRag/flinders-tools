@@ -731,6 +731,10 @@ var InternalLectureSubscriptionUpdates = (function (_super) {
         if (this.state.events.length == 0) {
             subs = [React.createElement("div", null, "You're up to date, well done!")];
         }
+        else {
+            var toWatch = subs.length;
+            subs.push(React.createElement("div", null, toWatch, " lectures in feed"));
+        }
         subs.reverse();
         return React.createElement("div", {className: "ui relaxed feed"}, subs);
     };
