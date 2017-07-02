@@ -2,7 +2,7 @@ import * as cookie from "js-cookie";
 
 import * as $ from "jquery";
 
-export let version = "3.5";
+export let version = "3.6";
 
 declare var alertify:any;
 

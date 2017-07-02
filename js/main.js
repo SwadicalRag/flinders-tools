@@ -762,7 +762,7 @@ exports.LectureSubscriptionUpdates = react_redux_1.connect(mapStateToProps, mapD
 },{"../actions":1,"js-base64":135,"react":406,"react-redux":159,"react-router":193}],14:[function(require,module,exports){
 "use strict";
 var cookie = require("js-cookie");
-exports.version = "3.5";
+exports.version = "3.6";
 require("persist-js");
 var yearOverride;
 var legacy;
