@@ -115,13 +115,12 @@ export class InternalLectureSubscriptionUpdates extends React.Component<{
             </div>;
         });
 
-        if(this.state.events.length == 0) {
+        if(subs.length == 0) {
             subs = [<div>You're up to date, well done!</div>];
         }
         else {
-            let toWatch = subs.length;
             subs.push(
-                <div>{toWatch} lectures in feed</div>
+                <div>{n} lectures in feed</div>
             );
         }
 
