@@ -11,6 +11,7 @@ export class InternalLectureItem extends React.Component<{
     title:string,
     date:string,
     url:string,
+    topicCode:string,
     watchLecture:(url:string)=>void,
     unwatchLecture:(url:string)=>void,
     isWatched: boolean;
@@ -20,7 +21,7 @@ export class InternalLectureItem extends React.Component<{
 
         // let url = LZString.compress(this.props.url);
         let url = (this.props.url);
-        let target = "/vid/" + b64.Base64.encodeURI(url);
+        let target = `/topic/${this.props.topicCode}/vid/${b64.Base64.encodeURI(url)}`;
 
         if(this.props.isWatched) {
             watched = <div className="ui horizontal label">Watched<i onClick={() => this.props.unwatchLecture(url)} className="delete icon"></i></div>;

@@ -10,6 +10,7 @@ import {Main} from "./components/main";
 import {SubscriptionList} from "./components/app.subscriptionsoverview";
 import {TopicOverview} from "./components/app.topicoverview";
 import {LectureVideo} from "./components/app.video";
+import {LectureVideo2} from "./components/app.video2";
 import app from "./reducers";
 import {requestSubscriptions} from "./actions";
 
@@ -35,6 +36,7 @@ ReactDOM.render(
         <Router>
             <Route component={Main}>
                 <Route path="/" component={SubscriptionList} />
+                <Route path="/topic/:topicCode/vid/:url" component={LectureVideo2} />
                 <Route path="/vid/:url" component={LectureVideo} />
                 <Route path="/topic/:topicCode" component={TopicOverview} />
             </Route>

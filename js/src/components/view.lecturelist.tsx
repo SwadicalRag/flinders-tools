@@ -75,6 +75,7 @@ export class InternalLectureList extends React.Component<{
         let lectureNodes = this.state.lectures.map((lecture) => {
             return <LectureItem
                 isWatched={lecture.watched}
+                topicCode={lecture.subjectcode}
                 title={lecture.title}
                 date={lecture.date}
                 url={lecture.url} />

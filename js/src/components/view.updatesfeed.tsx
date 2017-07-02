@@ -98,7 +98,7 @@ export class InternalLectureSubscriptionUpdates extends React.Component<{
             n++;
 
             let redirect = "/topic/" + event.subjectCode;
-            let target = "/vid/" + b64.Base64.encodeURI(event.url);
+            let target = `/topic/${event.subjectCode}/vid/${b64.Base64.encodeURI(event.url)}`;
             let btnStyle = {
                 cursor: "pointer"
             };

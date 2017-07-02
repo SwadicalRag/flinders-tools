@@ -18,7 +18,9 @@ export class TopicOverview extends React.Component<{
 
     render() {
         return <Semantify.Container>
-            <div className="ui right floated button" onClick={router.hashHistory.goBack}>Back</div>
+            <router.Link to="/">
+                <div className="ui right floated button">Back</div>
+            </router.Link>
             <h2>{this.props.params.topicCode}</h2>
             <LectureList topicCode={this.props.params.topicCode} />
         </Semantify.Container>;
