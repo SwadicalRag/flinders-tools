@@ -2,18 +2,29 @@ import * as cookie from "js-cookie";
 
 import * as $ from "jquery";
 
-export let version = "3.7.1";
+export let version = "3.7.2";
 
 declare var alertify:any;
 
 require("persist-js");
 declare var Persist:any;
 
-let yearOverride;
-
 namespace legacy {
     export function getYear() {
-        return yearOverride || parseInt(cookie.get("ft-lecture-year"));
+        let curURL = new URL(window.location.href);
+        let yearOverride = curURL.searchParams.get("year");
+
+        if(typeof yearOverride === "string") {
+            if(yearOverride.trim() !== "") {
+                let yearOverride2 = parseInt(yearOverride);
+
+                if((typeof yearOverride2 === "number") && !isNaN(yearOverride2)) {
+                    return yearOverride2;
+                }
+            }
+        }
+        
+        return parseInt(cookie.get("ft-lecture-year"));
     }
 
     export function setYear(year:number) {
@@ -196,10 +207,19 @@ function migrate() {
 }
 
 export function getYear() {
-    if(yearOverride) {
-        return yearOverride;
-    }
+    let curURL = new URL(window.location.href);
+    let yearOverride = curURL.searchParams.get("year");
 
+    if(typeof yearOverride === "string") {
+        if(yearOverride.trim() !== "") {
+            let yearOverride2 = parseInt(yearOverride);
+
+            if((typeof yearOverride2 === "number") && !isNaN(yearOverride2)) {
+                return yearOverride2;
+            }
+        }
+    }
+    
     if(_get("ft-lecture-year","Current Year") == "Current Year") {
         return currentYear();
     }
