@@ -16,7 +16,7 @@ export function get(url,callback:(contents:string,code:number) => void) {
 
     window[cb] = callback2;
 
-    $("body").append("<script src='http://www.whateverorigin.org/get?url=" + encodeURIComponent(url) + "&callback=" + cb + "'></script>");
+    $("body").append("<script src='https://api.allorigins.win/get?url=" + encodeURIComponent(url) + "&callback=" + cb + "'></script>");
 }
 
 export interface IResponse {
@@ -40,5 +40,5 @@ export function getPromise(url) {
 
 //     window[cb] = callback;
 
-//     $("body").append("<script src='http://www.whateverorigin.org/post?url=" + encodeURIComponent(url) + "&callback=" + cb + "'></script>");
+//     $("body").append("<script src='https://api.allorigins.win/post?url=" + encodeURIComponent(url) + "&callback=" + cb + "'></script>");
 // }
